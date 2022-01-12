@@ -2,7 +2,7 @@ module.exports = {
   transpileDependencies: [
     'vuetify'
   ],
-  publicPath: process.env.BUILD_FOR === 'github'
+  publicPath: process.env.NODE_ENV === 'production'
     ? '/package-info/'
     : '/'
 }
