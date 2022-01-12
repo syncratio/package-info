@@ -18,7 +18,8 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     env:
-      NODE_ENV: github
+      NODE_ENV: production
+      BUILD_FOR: github
     
     steps:
     - uses: actions/checkout@v2
