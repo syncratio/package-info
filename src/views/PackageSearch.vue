@@ -11,19 +11,29 @@
         'disable-pagination': isQuerying,
       }"
       :disable-sort="true"
+      :loading="isQuerying"
       item-key="name"
+      no-data-text="No items to show, try using search."
       class="row-pointer"
       @update:page="pageChanged"
       @click:row="rowSelected"
     >
       <template slot="top">
-        <v-form @submit.prevent="searchSubmitted">
-          <v-text-field
-            v-model="query"
-            label="Search"
-            class="mx-4"
-          ></v-text-field>
-        </v-form>
+        <v-toolbar height="80px">
+          <v-container class="toolbar-row">
+            <v-form @submit.prevent="searchSubmitted">
+              <v-text-field
+                :hide-details="true"
+                filled
+                clearable
+                :full-width="true"
+                v-model="query"
+                label="Search packages"
+                prepend-inner-icon="mdi-magnify"
+              ></v-text-field>
+            </v-form>
+          </v-container>
+        </v-toolbar>
       </template>
     </v-data-table>
     <router-view />
@@ -80,5 +90,8 @@ export default {
       }
     }
   }
+}
+.toolbar-row {
+  max-width: 90rem;
 }
 </style>

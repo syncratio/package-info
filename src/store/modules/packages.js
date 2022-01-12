@@ -14,11 +14,11 @@ export default {
         totalItems: state => Number(state.packages?.total) || 0,
     },
     actions: {
-        async fetchPackages({ commit }, {page = 1, query}) {
+        async fetchPackages({ commit }, { page = 1, query }) {
             const size = 10;
             const from = (page - 1) * size;
             const text = query;
-            
+
             let response;
             try {
                 response = await axios.get(`https://registry.npmjs.org/-/v1/search`, {

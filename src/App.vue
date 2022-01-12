@@ -3,9 +3,18 @@
     <v-main>
       <router-view />
     </v-main>
-    <v-footer padless app absolute>
+    <v-footer padless app absolute color="blue-grey lighten-5">
       <v-col class="text-center" cols="12">
-        {{ new Date().getFullYear() }} — <strong><a href="https://github.com/syncratio">syncratio</a></strong>
+        <span class="text-overline">Vladimir Ganzenko</span>
+        <v-btn
+          small
+          fab
+          icon
+          href="https://github.com/syncratio"
+          target="_blank"
+        >
+          <v-icon> mdi-github </v-icon>
+        </v-btn>
       </v-col>
     </v-footer>
   </v-app>

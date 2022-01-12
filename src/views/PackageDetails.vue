@@ -6,25 +6,29 @@
       max-width="600px"
       @click:outside="$router.push({ name: 'PackageSearch' })"
     >
-      <v-skeleton-loader
-        :loading="loading"
-        type="article, image"
-        :boilerplate="true"
-      >
-        <v-card>
+      <v-card>
+        <v-skeleton-loader
+          :loading="loading"
+          type="article"
+          :boilerplate="true"
+        >
           <v-card-title class="text-h4">{{ name }}</v-card-title>
           <v-card-subtitle class="text-subtitle-2">
             <span v-if="author">by {{ author }}</span>
             <span v-if="version">v.{{ version }}</span>
             <span v-if="published">published {{ published }}</span>
           </v-card-subtitle>
+        </v-skeleton-loader>
+        <v-skeleton-loader :loading="loading" type="image" :boilerplate="true">
           <v-card-text>
             <v-row class="text-body-1 package-description">
               <v-col>{{ description }}</v-col>
             </v-row>
             <v-row v-if="usage.values.length">
               <v-col>
-                <span class="text-subtitle-1 text-overline">Yearly downloads</span>
+                <span class="text-subtitle-1 text-overline"
+                  >Yearly downloads</span
+                >
                 <v-sparkline
                   :labels="usage.labels"
                   :value="usage.values"
@@ -37,8 +41,8 @@
               </v-col>
             </v-row>
           </v-card-text>
-        </v-card>
-      </v-skeleton-loader>
+        </v-skeleton-loader>
+      </v-card>
     </v-dialog>
   </v-row>
 </template>
